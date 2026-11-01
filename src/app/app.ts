@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { Navbar } from './shell/navbar/navbar';
+import { Sidebar } from './shell/sidebar/sidebar';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [Navbar, Sidebar],
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('proyecto-angular-vuelos');
+  protected readonly title = signal('Proyecto Vuelos');
 }
