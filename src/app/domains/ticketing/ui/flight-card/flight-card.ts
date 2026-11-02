@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model, output } from '@angular/core';
 import { Flight } from '../../data/flight';
 import { DatePipe } from '@angular/common';
 
@@ -12,14 +12,14 @@ import { DatePipe } from '@angular/common';
 })
 export class FlightCard {
   readonly item = input.required<Flight>();
-  readonly selected = input(false);
-  readonly selectedChange = output<boolean>();
+  readonly selected = model(false);
+  // readonly selectedChange = output<boolean>();
 
   protected select(): void {
-    this.selectedChange.emit(true);
+    this.selected.set(true);
   }
 
   protected deselect(): void {
-    this.selectedChange.emit(false);
+    this.selected.set(false);
   }
 }
