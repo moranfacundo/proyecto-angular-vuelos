@@ -1,0 +1,26 @@
+@let itemValue = item();
+@let conRetraso = itemValue.delayed ? 'Con retrasos': 'Sin retrasos';
+
+
+<div [class.selected]="selected()" class="card">
+  <div class="card-header">
+    <h2 class="title">{{ itemValue.from }} - {{ itemValue.to }}</h2>
+  </div>
+
+  <div class="card-body">
+    <p>Nro vuelo: #{{ itemValue.id }}</p>
+    <p>Fecha: {{ itemValue.date | date }}</p>
+    <p>{{ conRetraso }}</p>
+    <p>
+      @if (!selected()) {
+        <button (click)="select()">Seleccionar</button>
+      } @else {
+        <button (click)="deselect()">Quitar</button>
+      }
+    </p>
+    <ng-content>
+      <!-- This content is shown if no content is projected -->
+      <p>No additional information provided.</p>
+    </ng-content>
+  </div>
+</div>

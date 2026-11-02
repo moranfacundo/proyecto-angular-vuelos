@@ -33,3 +33,13 @@
 ```bash
 ng lint
 ```
+
+
+### CLI commands
+```bash
+ng g c domains/ticketing/feature-booking/flight-search
+ng g c domains/ticketing/ui/flight-card
+ng g i domains/ticketing/data/flight
+ng g i domains/ticketing/data/aircraft
+ng g i domains/ticketing/data/price
+```

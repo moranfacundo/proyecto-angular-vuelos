@@ -1,0 +1,49 @@
+<h1>Flight Search</h1>
+
+<form>
+  <div>
+    <label for="from">From:</label>
+    <input [formField]="filterForm.from" id="from" />
+  </div>
+  <div>
+    <label for="to">To:</label>
+    <input [formField]="filterForm.to" id="to" />
+  </div>
+  <div>
+    <button
+      type="button"
+      (click)="searchWithHTTPClient()"
+      [disabled]="!filter().from || !filter().to"
+    >
+      Search
+    </button>
+  </div>
+</form>
+
+@if (!error() && flightsFromResource().length > 0) {
+  <div class="row">
+    @for (flight of flightsFromResource(); track flight.id) {
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <app-flight-card
+          [item]="flight"
+          [selected]="basket()[flight.id]"
+          (selectedChange)="updateBasket(flight.id, $event)"
+        />
+      </div>
+    }
+  </div>
+}
+
+@if (error()) {
+  <div>Error: {{ error() | json }}</div>
+}
+
+@if (isLoading()) {
+  <div>Loading...</div>
+}
+
+<p>&nbsp;</p>
+
+<div>
+  <pre>{{ basket() | json }}</pre>
+</div>
