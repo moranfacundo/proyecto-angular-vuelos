@@ -43,3 +43,13 @@ ng g i domains/ticketing/data/flight
 ng g i domains/ticketing/data/aircraft
 ng g i domains/ticketing/data/price
 ```
+
+### Router components
+```bash
+ng g c domains/ticketing/feature-booking/passenger-search
+ng g c shell/home
+ng g c shell/about
+ng g c domains/ticketing/feature-booking/flight-edit
+# La opción --flat indica que no se debe generar ninguna carpeta adicional.
+ng g c domains/ticketing/feature-booking/booking-navigation --flat
+```

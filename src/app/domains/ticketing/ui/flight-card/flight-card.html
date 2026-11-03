@@ -8,7 +8,6 @@
   </div>
 
   <div class="card-body">
-    <ng-content select=".detail" />
     <p>Nro vuelo: #{{ itemValue.id }}</p>
     <p>Fecha: {{ itemValue.date | date }}</p>
     <p>{{ conRetraso }}</p>
@@ -19,5 +18,6 @@
         <button (click)="deselect()">Quitar</button>
       }
     </p>
+    <ng-content />
   </div>
 </div>

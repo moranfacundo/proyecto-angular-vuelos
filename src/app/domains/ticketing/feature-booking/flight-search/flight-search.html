@@ -29,7 +29,13 @@
           [selected]="basket()[flight.id]"
           (selectedChange)="updateBasket(flight.id, $event)"
         >
-          <p class="detail">Full Id: LUGGAGE-0815-4711-{{ flight.id }}</p>
+        <!--
+           `routerLink`acepta segmentos de URL individuales
+            y parámetros de matriz en forma de array.
+        -->
+        <button [routerLink]="['../flight-edit', flight.id, { showDetails: true }]">
+          Edit
+        </button>
         </app-flight-card>
       </div>
     }

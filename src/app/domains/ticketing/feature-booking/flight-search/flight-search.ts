@@ -5,13 +5,15 @@ import { DatePipe, JsonPipe } from '@angular/common';
 
 import { Flight } from '../../data/flight';
 import { FlightCard } from '../../ui/flight-card/flight-card';
+import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [
     FormField,
     DatePipe,
     JsonPipe,
-    FlightCard
+    FlightCard,
+    RouterLink
   ],
   selector: 'app-flight-search',
   templateUrl: './flight-search.html',
