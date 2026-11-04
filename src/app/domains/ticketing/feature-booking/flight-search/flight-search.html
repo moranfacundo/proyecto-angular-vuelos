@@ -12,7 +12,6 @@
   <div>
     <button
       type="button"
-      (click)="searchWithHTTPClient()"
       [disabled]="!filter().from || !filter().to"
     >
       Search
@@ -20,9 +19,9 @@
   </div>
 </form>
 
-@if (!error() && flightsFromResource().length > 0) {
+@if (!error() && flights().length > 0) {
   <div class="row">
-    @for (flight of flightsFromResource(); track flight.id) {
+    @for (flight of flights(); track flight.id) {
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <app-flight-card
           [item]="flight"

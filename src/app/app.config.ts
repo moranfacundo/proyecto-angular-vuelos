@@ -1,5 +1,18 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { PreloadAllModules, provideRouter, withComponentInputBinding, withPreloading } from '@angular/router';
+import {
+  PreloadAllModules,
+  provideRouter,
+  withAutoCleanupInjectors,
+  withComponentInputBinding,
+  withPreloading,
+} from '@angular/router';
+
+import {
+  BrowserLanguageService,
+  LanguageService,
+} from './domains/shared/util-common/language-service';
+import { provideLanguageService } from './domains/shared/util-common/language';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -27,6 +40,19 @@ export const appConfig: ApplicationConfig = {
         lo que permite que se muestre con mayor rapidez.
       */
       withPreloading(PreloadAllModules),
+      /*
+        «limpieza automática» (*Auto Cleanup*).
+        Esta funcionalidad destruye automáticamente los *Environment Providers*
+         —así como las instancias de servicios que estos crean—
+         cuando el usuario abandona la ruta correspondiente.
+      */
+      withAutoCleanupInjectors(),
     ),
+    /*
+      Aquí le indicamos a Angular que proporcione el `BrowserLanguageService`
+      siempre que un componente u otro servicio solicite el tipo `LanguageService`.
+    */
+    // { provide: LanguageService, useClass: BrowserLanguageService },
+    provideLanguageService('browser'),
   ],
 };

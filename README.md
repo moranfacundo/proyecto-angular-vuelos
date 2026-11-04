@@ -53,3 +53,11 @@ ng g c domains/ticketing/feature-booking/flight-edit
 # La opción --flat indica que no se debe generar ninguna carpeta adicional.
 ng g c domains/ticketing/feature-booking/booking-navigation --flat
 ```
+
+### Services
+```bash
+ng g s domains/ticketing/data/flight-client
+ng g s domains/shared/util-common/config-service
+ng g s domains/shared/util-common/language
+ng g s domains/ticketing/feature-booking/flight-search/flight-store
+```
