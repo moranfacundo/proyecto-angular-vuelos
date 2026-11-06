@@ -1,4 +1,8 @@
 {
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "printWidth": 100,
   "singleQuote": true,
   "overrides": [

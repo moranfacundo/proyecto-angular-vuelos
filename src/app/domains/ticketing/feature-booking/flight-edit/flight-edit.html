@@ -1,3 +1,25 @@
 <h1>Flight Edit</h1>
-<p>Id: {{ id() }}</p>
-<p>ShowDetails: {{ showDetails() }}</p>
+<app-validation-errors-pane [errors]="flightForm().errorSummary()" [showFieldNames]="true" />
+<form [formRoot]="flightForm">
+  <fieldset>
+    <legend>FLight</legend>
+
+    <div class="form-group">
+      <label for="flight-id">ID</label>
+      <!-- Como el id es numerico hay que usar type=number en el input -->
+      <input type="number" class="form-control" [formField]="flightForm.id" id="flight-id" />
+    </div>
+
+    <div class="form-group">
+      <label for="flight-from">From</label>
+      <input class="form-control" [formField]="flightForm.from" id="flight-from" />
+      <app-validation-errors-pane [errors]="flightForm.from().errors()" />
+    </div>
+  </fieldset>
+
+
+
+  <div>
+    <button>Save</button>
+  </div>
+</form>

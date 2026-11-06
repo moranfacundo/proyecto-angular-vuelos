@@ -1,1 +1,4 @@
-export interface Price {}
+export interface Price {
+  fightClass: string;
+  amount: number
+}

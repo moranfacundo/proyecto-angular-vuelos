@@ -61,3 +61,8 @@ ng g s domains/shared/util-common/config-service
 ng g s domains/shared/util-common/language
 ng g s domains/ticketing/feature-booking/flight-search/flight-store
 ```
+
+### Forms
+```bash
+ng g c domains/shared/ui-forms/validation-errors/validation-errors-pane
+```
