@@ -66,3 +66,26 @@ ng g s domains/ticketing/feature-booking/flight-search/flight-store
 ```bash
 ng g c domains/shared/ui-forms/validation-errors/validation-errors-pane
 ```
+
+### Vitest
+```bash
+# Para instalar e inicializar Playwright, ejecuta el siguiente comando en tu proyecto Angular:
+ng add @vitest/browser-playwright
+npx playwright install
+```
+Para indicarle a Angular CLI que utilice el modo navegador, debes ajustar la configuración de pruebas de tu proyecto en el archivo `angular.json`.
+Para ello, busca el nodo `projects/<nombre-del-proyecto>/architect/test` y define uno o más navegadores que se utilizarán (Listado 7-4).
+```json
+"test": {
+"builder": "@angular/build:unit-test",
+"options": {
+"browsers": ["Chromium"]
+},
+"configurations": {
+"ci": {
+"watch": false,
+"browsers": ["ChromiumHeadless"]
+}
+}
+},
+```
